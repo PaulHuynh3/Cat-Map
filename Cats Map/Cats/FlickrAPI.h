@@ -15,7 +15,8 @@
 //this is what we want but we can not do it this way.
 // + (NSArray*)searchFor:(NSString*)query;
 //create with blocks because its asynchronous you are fetching data from the network
-+ (void)searchFor:(NSString*)query complete:(void (^)(NSArray<FlickrPhoto*>* results))complete;
++ (void)searchFor:(NSString*)query
+         complete:(void (^)(NSArray<FlickrPhoto*>* results))complete;
 
 // + (UIImage*)loadImageForPhoto:(FlickrPhoto*)photo;
 + (void)loadImageForPhoto:(FlickrPhoto*)photo

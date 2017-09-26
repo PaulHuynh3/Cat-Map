@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "FlickrAPI.h"
 #import "CatPhotoCollectionViewCell.h"
-#import "FlickrPhoto.h"
 
 @interface ViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -23,32 +22,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // what we want to do is this self.catPhotos = [FlickrAPI searchFor:@"cats"];
-    // but the search process happens in the background asynchronously so we can't
-    // so one way of dealing with this is moving the return type to a block parameter
-    // so we pass in a block that gets the "return value" and does what we would like with the return value
 //    [FlickrAPI searchFor:@"cats" complete:^(NSArray<FlickrPhoto *> *results) {
 //        self.catPhotoArray = results;
 //        
-//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//            [self.collectionView reloadData];
-//        }];
+//    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//        [self.collectionView reloadData];
+//    }];
 //        NSLog(@"loaded photo results");
 //        
 //    }];
     
+    [self networkRequest:@"naruto" complete:^(NSArray<FlickrPhoto *> *results) {
+        self.catPhotoArray = results;
+        
+        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+            [self.collectionView reloadData];
+        }];
+        
+    }];
     
-   [self networkRequest:@"cats" complete:^(NSArray<FlickrPhoto *> *results) {
-       self.catPhotoArray = results;
-       
-       [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-           [self.collectionView reloadData];
-       }];
-       
-   }];
-
 }
-
 
 //allows user to add in a string and this method will query
 -(NSURLComponents*) userSearch:(NSString *)searchString {
@@ -61,12 +54,12 @@
     
     
     //this query component can seperate the entire key and value of the entire thing.
-    components.query = @"method=flickr.photos.search&api_key=c7049e84540c2a5084fedc19025bb099&tags=dogs &has_geo=1&extras=url_m&format=json&nojsoncallback=1";
+    components.query = @"method=flickr.photos.search&api_key=c7049e84540c2a5084fedc19025bb099&tags=userinput &has_geo=1&extras=url_m&format=json&nojsoncallback=1";
     //create a new mutable array.
     NSMutableArray *queryItems = [components.queryItems mutableCopy];
     
     //searches for the queryitems "tag" and take in the user's search parameter
-    NSURLQueryItem *searchItem = [NSURLQueryItem queryItemWithName:@"tag" value:searchString];
+    NSURLQueryItem *searchItem = [NSURLQueryItem queryItemWithName:@"tags" value:searchString];
     [queryItems addObject:searchItem];
     components.queryItems = [queryItems copy];
     return components;
@@ -77,7 +70,7 @@
     //    NSURLRequest *urlRequest = [[NSURLRequest alloc]initWithURL:[self createNewUrl]];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
-   
+    
     NSURL *url = [self userSearch:query].URL;
     //convert url to nsurlrequest
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -123,21 +116,27 @@
 
 
 
+
+
+
+
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     //catPhotoArray is set to a json-array
     return self.catPhotoArray.count;
-    
+
 }
 
 
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+
     CatPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
     //we set our array equal to the array of the json even tho it was wrapped around a dictionary therefore we dont need to need access sections then items.
     [cell setFlickrPhoto:self.catPhotoArray[indexPath.item]]; //this line is called everytime user scrolls down to new screem and the cellclass is continuously setting pictures.
     
-    
+
     return cell;
 }
 

@@ -12,11 +12,13 @@
 
 //create properties relating to the API
 @property (nonatomic,strong) NSString* flickrID;
+@property (nonatomic,strong) NSString* title;
+@property (nonatomic,strong) NSString* flickrId;
 @property (nonatomic,strong) NSString* owner;
 @property (nonatomic,strong) NSString* secret;
 @property (nonatomic,strong) NSString* server;
-@property (nonatomic,strong) NSString* title;
-@property (nonatomic) NSInteger farm;
+@property (nonatomic,assign) NSInteger farm;
+
 
 @property (nonatomic,strong) UIImage* image;
 
@@ -24,6 +26,6 @@
 
 - (instancetype)initWithInfo:(NSDictionary<NSString*,id>*)info;
 
-- (NSURL*) url;
+- (NSURL *)url;
 
 @end

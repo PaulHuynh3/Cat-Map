@@ -54,7 +54,7 @@
 
 //this method finds the cat image and set it to the block "complete"
 +(void)loadImageForPhoto:(FlickrPhoto *)photo complete:(void (^)(UIImage *))complete{
-    
+
     NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[photo url] completionHandler:^(NSData * data, NSURLResponse *  response, NSError * error) {
         
         // this is where we get the results
