@@ -19,8 +19,9 @@
     _owner = info[@"owner"];
     _secret = info[@"secret"];
     _server = info[@"server"];
-    _photoTitle = info[@"title"];
+    _title = info[@"title"];
     _farm = [info[@"farm"] integerValue];
+    
     
     }
     return self;
@@ -35,6 +36,13 @@
             [NSString stringWithFormat:
              @"https://farm%ld.staticflickr.com/%@/%@_%@.jpg",
              self.farm, self.server, self.flickrID, self.secret]];
+}
+
+
+-(void)gotLocation:(double)latitude longitude:(double)longitude {
+    
+    _coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+    
 }
 
 

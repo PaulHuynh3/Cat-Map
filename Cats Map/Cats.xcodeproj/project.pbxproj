@@ -16,6 +16,9 @@
 		DA3A11431F79A404002DA18A /* FlickrPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3A11421F79A404002DA18A /* FlickrPhoto.m */; };
 		DA3A11461F79AB33002DA18A /* FlickrAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3A11451F79AB33002DA18A /* FlickrAPI.m */; };
 		DA3A114C1F79B6EA002DA18A /* CatPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3A114B1F79B6EA002DA18A /* CatPhotoCollectionViewCell.m */; };
+		DAAF52461F7B16FC002D2481 /* DetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAF52451F7B16FC002D2481 /* DetailedViewController.m */; };
+		DAAF52491F7B17BB002D2481 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAAF52481F7B17BB002D2481 /* MapKit.framework */; };
+		DAAF524B1F7B17DE002D2481 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAAF524A1F7B17DE002D2481 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,10 @@
 		DA3A11451F79AB33002DA18A /* FlickrAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrAPI.m; sourceTree = "<group>"; };
 		DA3A114A1F79B6EA002DA18A /* CatPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatPhotoCollectionViewCell.h; sourceTree = "<group>"; };
 		DA3A114B1F79B6EA002DA18A /* CatPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatPhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		DAAF52441F7B16FC002D2481 /* DetailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedViewController.h; sourceTree = "<group>"; };
+		DAAF52451F7B16FC002D2481 /* DetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedViewController.m; sourceTree = "<group>"; };
+		DAAF52481F7B17BB002D2481 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		DAAF524A1F7B17DE002D2481 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAAF524B1F7B17DE002D2481 /* CoreLocation.framework in Frameworks */,
+				DAAF52491F7B17BB002D2481 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +63,7 @@
 			children = (
 				DA3A11271F79765F002DA18A /* Cats */,
 				DA3A11261F79765F002DA18A /* Products */,
+				DAAF52471F7B17BA002D2481 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +116,8 @@
 			children = (
 				DA3A112E1F79765F002DA18A /* ViewController.h */,
 				DA3A112F1F79765F002DA18A /* ViewController.m */,
+				DAAF52441F7B16FC002D2481 /* DetailedViewController.h */,
+				DAAF52451F7B16FC002D2481 /* DetailedViewController.m */,
 				DA3A114A1F79B6EA002DA18A /* CatPhotoCollectionViewCell.h */,
 				DA3A114B1F79B6EA002DA18A /* CatPhotoCollectionViewCell.m */,
 			);
@@ -118,6 +130,15 @@
 				DA3A11311F79765F002DA18A /* Main.storyboard */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		DAAF52471F7B17BA002D2481 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DAAF524A1F7B17DE002D2481 /* CoreLocation.framework */,
+				DAAF52481F7B17BB002D2481 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +214,7 @@
 			files = (
 				DA3A114C1F79B6EA002DA18A /* CatPhotoCollectionViewCell.m in Sources */,
 				DA3A11301F79765F002DA18A /* ViewController.m in Sources */,
+				DAAF52461F7B16FC002D2481 /* DetailedViewController.m in Sources */,
 				DA3A11461F79AB33002DA18A /* FlickrAPI.m in Sources */,
 				DA3A11431F79A404002DA18A /* FlickrPhoto.m in Sources */,
 				DA3A112D1F79765F002DA18A /* AppDelegate.m in Sources */,
@@ -355,6 +377,7 @@
 				DA3A113E1F79765F002DA18A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

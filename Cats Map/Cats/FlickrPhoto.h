@@ -16,10 +16,12 @@
 @property (nonatomic,strong) NSString* owner;
 @property (nonatomic,strong) NSString* secret;
 @property (nonatomic,strong) NSString* server;
-@property (nonatomic,strong) NSString* photoTitle;
+@property (nonatomic, copy) NSString *title;
 @property (nonatomic) NSInteger farm;
 
 @property (nonatomic,strong) UIImage* image;
+
+
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 
 

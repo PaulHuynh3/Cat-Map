@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "FlickrAPI.h"
 #import "CatPhotoCollectionViewCell.h"
+#import "DetailedViewController.h"
 
 @interface ViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -32,7 +33,7 @@
 //        
 //    }];
     
-    [self networkRequest:@"naruto" complete:^(NSArray<FlickrPhoto *> *results) {
+    [self networkRequest:@"wolves" complete:^(NSArray<FlickrPhoto *> *results) {
         self.catPhotoArray = results;
         
         [[NSOperationQueue mainQueue]addOperationWithBlock:^{
@@ -116,11 +117,6 @@
 
 
 
-
-
-
-
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     //catPhotoArray is set to a json-array
     return self.catPhotoArray.count;
@@ -141,6 +137,23 @@
 }
 
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"dvcSegue"]){
+        
+        DetailedViewController *controller = [segue destinationViewController];
+        //taking the cell information from cellforitematindexpath which contains the cat image already and we are calling the catphotocollectiionviewcell to access the property to set it to each other.
+        CatPhotoCollectionViewCell *cell = (CatPhotoCollectionViewCell *)sender;
+        
+        
+        controller.flickrPhoto = cell.flickrPhoto;
+        
+
+    }
+    
+    
+}
+
+    
 
 
 

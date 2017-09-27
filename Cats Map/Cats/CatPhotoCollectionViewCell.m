@@ -29,10 +29,11 @@
             
     //this sets the flickrphoto.image = result so that in the future i can do stuff with it eles my flickrphoto image will be nil.
     //everytime the collectionview indexpath is called(as i scroll down) it will assign it to that var.
+    
             flickrPhoto.image = result;
             self.imageView.image = result;
             //i can retrieve this information because json provides the title but not images
-            self.catNameLabel.text = flickrPhoto.photoTitle;
+            self.catNameLabel.text = flickrPhoto.title;
         }];
     }];
 
