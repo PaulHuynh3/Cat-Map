@@ -23,16 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [FlickrAPI searchFor:@"cats" complete:^(NSArray<FlickrPhoto *> *results) {
-//        self.catPhotoArray = results;
-//        
-//    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//        [self.collectionView reloadData];
-//    }];
-//        NSLog(@"loaded photo results");
-//        
-//    }];
-    
+
     [self networkRequest:@"wolves" complete:^(NSArray<FlickrPhoto *> *results) {
         self.catPhotoArray = results;
         
@@ -55,7 +46,7 @@
     
     
     //this query component can seperate the entire key and value of the entire thing.
-    components.query = @"method=flickr.photos.search&api_key=c7049e84540c2a5084fedc19025bb099&tags=userinput &has_geo=1&extras=url_m&format=json&nojsoncallback=1";
+    components.query = @"method=flickr.photos.search&api_key=c7049e84540c2a5084fedc19025bb099&tags=userinput &has_geo=1&extras=geo&format=json&nojsoncallback=1";
     //create a new mutable array.
     NSMutableArray *queryItems = [components.queryItems mutableCopy];
     
@@ -105,6 +96,7 @@
             //use the instance method of flickrPhoto to save the item into the method.
             [photosArray addObject:[[FlickrPhoto alloc]initWithInfo:photoInfo]];
         }
+        
         //save the mutable array of photos to the input of "complete" block.
         complete(photosArray);
         

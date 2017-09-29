@@ -17,27 +17,19 @@
 @property (nonatomic,strong) NSString* secret;
 @property (nonatomic,strong) NSString* server;
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, assign) double latitude;
+@property (nonatomic, assign) double longitude;
+
+
+
 @property (nonatomic) NSInteger farm;
 
 @property (nonatomic,strong) UIImage* image;
 
-
+//required property for the mkAnontation.. we override this getter property. in the .m file.
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 
 
-/*
- To make our model object work seamlessly with MapKit we will make our Photo object conform to the MKAnnotation protocol.
- 
- Create a property on your Photo object for the coordinate. This is required by the protocol. You will need to import MapKit.
- 
- @property(nonatomic) CLLocationCoordinate2D coordinate;
- 
- Once we fetch our image's coordinates we will use CLLocationCoordinate2DMake() and pass in two double values for the latitude and longitude so that we can set the coordinate property on our Photo object.
- 
- The protocol also uses the title property of our Photo object. So the title will work with MapK
- 
- 
- */
 
 
 

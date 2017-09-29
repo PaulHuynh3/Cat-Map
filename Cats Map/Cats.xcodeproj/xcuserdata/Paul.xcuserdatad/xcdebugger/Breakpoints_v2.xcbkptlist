@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cats/ViewController.m"
-            timestampString = "528162252.871085"
+            timestampString = "528255056.430792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "-prepareForSegue:sender:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -8,10 +8,13 @@
 
 #import "DetailedViewController.h"
 
-@interface DetailedViewController ()
+@interface DetailedViewController ()<MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *mapTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
 
 @end
 
@@ -23,8 +26,13 @@
     self.mapTitle.text = self.flickrPhoto.title;
     
     self.imageView.image = self.flickrPhoto.image;
+    //creates the map span
+    MKCoordinateSpan span = MKCoordinateSpanMake(.25f, .25f);
+    //sets the region for the user
+    self.mapView.region = MKCoordinateRegionMake(self.flickrPhoto.coordinate, span);
     
-    
+    //adds the red pin on the map
+    [self.mapView addAnnotation:self.flickrPhoto];
 }
 
 

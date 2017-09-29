@@ -121,6 +121,7 @@
                     <connections>
                         <outlet property="imageView" destination="ooB-Pp-YSz" id="D2M-50-pcr"/>
                         <outlet property="mapTitle" destination="Akr-Rs-7XF" id="zS2-7L-TWp"/>
+                        <outlet property="mapView" destination="Wsg-Pt-n4E" id="H0s-dH-Qer"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="giz-4c-V6z" userLabel="First Responder" sceneMemberID="firstResponder"/>
